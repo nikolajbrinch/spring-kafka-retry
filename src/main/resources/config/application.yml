@@ -1,0 +1,19 @@
+spring:
+  kafka:
+    producer:
+      transaction-id-prefix: ${KAFKA_TRANSACTION_ID_PREFIX:${spring.application.name}.}
+      retries: 10
+      acks: all
+      properties:
+        enable:
+          idempotence: true
+
+info.component: Kafka Retry Service
+
+server.port: ${SERVER_PORT:9080}
+
+management.server.port: ${MANAGEMENT_SERVER_PORT:9081}
+
+dk.digst.digital.post:
+  system:
+    id: 1cc94eb4-6096-4568-8b9e-864c0ae59da3
